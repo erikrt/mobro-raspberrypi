@@ -125,7 +125,7 @@ make install
 Now finally also check out the repository this setup guide is in and for ;)
 
 ```bash
-git checkout https://github.com/ModBros/mobro-raspberrypi.git
+git checkout https://github.com/erikrt/mobro-raspberrypi.git
 cd mobro-raspberrypi
 ```
 
