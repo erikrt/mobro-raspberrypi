@@ -39,14 +39,14 @@ create a new additional and separate 'mobro' partition. You can do this by using
 We will mount this partition with write permissions, and it will be used by the service to persist configuration files
 before reboot as well as persisting log files (if enabled).
 
-We will also configure the /boot partition to be mounted read-only. Simply append the 'ro' flag to the line containing
+We will also configure the /boot/firmware partition to be mounted read-only. Simply append the 'ro' flag to the line containing
 the /boot partition.
 
 In the end the **/etc/fstab** should look something like this:
 
 ```
 proc            /proc           proc    defaults                                                           0       0
-/dev/mmcblk0p1  /boot           vfat    defaults,noatime,ro                                                0       2
+/dev/mmcblk0p1  /boot/firmware  vfat    defaults,noatime,ro                                                0       2
 /dev/mmcblk0p2  /               ext4    defaults,noatime                                                   0       1
 /dev/mmcblk0p3  /mobro          vfat    defaults,noatime,user,exec,uid=1000,gid=100,dmask=0022,fmask=0111  0       0
 ```
@@ -146,8 +146,8 @@ chmod 440 /home/modbros/mobro-raspberrypi/config/010_wwwdata-scripts
 ### Copying configurations
 
 ```bash
-cat /home/modbros/mobro-raspberrypi/config/config.txt > /boot/config.txt
-cat /home/modbros/mobro-raspberrypi/config/cmdline.txt > /boot/cmdline.txt
+cat /home/modbros/mobro-raspberrypi/config/config.txt > /boot/firmware/config.txt
+cat /home/modbros/mobro-raspberrypi/config/cmdline.txt > /boot/firmware/cmdline.txt
 cat /home/modbros/mobro-raspberrypi/config/hostname > /etc/hostname
 cat /home/modbros/mobro-raspberrypi/config/hosts > /etc/hosts
 cat /home/modbros/mobro-raspberrypi/config/.bashrc >> /home/modbros/.bashrc
@@ -244,5 +244,6 @@ A final reboot and we're done
 ```bash
 reboot
 ```
+
 
 
