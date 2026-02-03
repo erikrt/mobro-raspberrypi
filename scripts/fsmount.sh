@@ -185,9 +185,9 @@ print_status() {
 
   printf "\n%s\n" "partition | current | on next boot"
   printf "%s\n" "----------|---------|-------------"
-  printf "${color_path}/${color_white}         | ${overlay_color_status}%s      ${color_white}| ${overlay_color_conf}%s\n" "$overlay_status" "$overlay_conf"
+  printf "${color_path}/${color_white}         			| ${overlay_color_status}%s      ${color_white}| ${overlay_color_conf}%s\n" "$overlay_status" "$overlay_conf"
   printf "${color_path}/boot/firmware${color_white}     | ${boot_color}%s      ${color_white}| ${color_ro}%s\n" "$boot_status" "RO"
-  printf "${color_path}/mobro${color_white}    | ${mobro_color}%s      ${color_white}| ${mobro_color}%s\n" "$mobro_status" "$mobro_status"
+  printf "${color_path}/mobro${color_white}    			| ${mobro_color}%s      ${color_white}| ${mobro_color}%s\n" "$mobro_status" "$mobro_status"
 }
 
 # Check whether user requests help
