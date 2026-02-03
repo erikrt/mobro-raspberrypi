@@ -577,7 +577,7 @@ check_network_ip_valid() {
 }
 
 get_overlay_now() {
-    grep -q "boot=overlay" /proc/cmdline
+    grep -q "overlayroot=tmpfs" /proc/cmdline
 }
 
 overlay_disabled() {
