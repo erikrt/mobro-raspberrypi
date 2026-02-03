@@ -108,12 +108,12 @@ cd create_ap
 make install
 ```
 
-### Checkout MoBro repository
+### Clone MoBro repository
 
 Now finally also check out the repository this setup guide is in and for ;)
 
 ```bash
-git checkout https://github.com/erikrt/mobro-raspberrypi.git
+git clone https://github.com/erikrt/mobro-raspberrypi.git
 cd mobro-raspberrypi
 ```
 
@@ -242,6 +242,7 @@ A final reboot and we're done
 ```bash
 reboot
 ```
+
 
 
 
