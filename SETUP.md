@@ -178,7 +178,7 @@ rm -rf /var/www/*
 chmod +rx /home/modbros/mobro-raspberrypi/web/resources/favicon.ico
 ln -s /home/modbros/mobro-raspberrypi/web /var/www/html
 
-sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=1/g" /etc/php/7.3/fpm/php.ini
+sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=1/g" /etc/php/8.4/fpm/php.ini
 cat /home/modbros/mobro-raspberrypi/config/15-fastcgi-php.conf >/etc/lighttpd/conf-available/15-fastcgi-php.conf
 
 lighttpd-enable-mod fastcgi 
@@ -241,6 +241,7 @@ A final reboot and we're done
 ```bash
 reboot
 ```
+
 
 
 
