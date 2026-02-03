@@ -1,13 +1,12 @@
 lighttpd
-php7.3-fpm
+php8.4-fpm
 libterm-readline-gnu-perl
 xserver-xorg
 xserver-xorg-video-fbturbo
 x11-xserver-utils
 xinit
 matchbox-window-manager
-libgles2-mesa
-chromium-browser
+chromium
 xwit
 xdotool
 curl
@@ -28,3 +27,4 @@ secure-delete
 fbi
 busybox-syslogd
 upower
+xwayland
