@@ -616,7 +616,7 @@ if [[ -f "$SKIP_FLAG" ]]; then
     # do not process if the service skip flag is present
     # but start networking so we can connect via SSH
     log "startup" "skip flag for service is set"
-    sudo systemctl start dhcpcd.service
+    sudo systemctl start NetworkManager.service
     wait_endless
 fi
 
@@ -687,9 +687,9 @@ else
     fi
 fi
 
-# from this point onwards, we require networking -> start dhcpcd
-log "startup" "starting dhcpcd service"
-sudo systemctl start dhcpcd.service
+# from this point onwards, we require networking -> start NetworkManager
+log "startup" "starting NetworkManager service"
+sudo systemctl start NetworkManager.service
 
 # handle case if no connected display is found
 if [[ $NO_SCREEN == 1 ]]; then
@@ -781,7 +781,7 @@ eth|usb)
     if ! check_network_ip_valid $NETWORK_INTERFACE; then
         log "startup" "$NETWORK_INTERFACE not connected correctly, re-negotiate and try again"
         {
-            sudo systemctl restart dhcpcd.service
+            sudo systemctl restart NetworkManager.service
             sudo ethtool -r eth0
             sleep 5
         } &>>$LOG_FILE
