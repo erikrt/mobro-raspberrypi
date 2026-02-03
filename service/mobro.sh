@@ -197,7 +197,7 @@ show_page_chrome() {
     log "chromium" "switching to: '$1'"
     # check-for-update-interval flag can be removed once chromium is fixed
     # temporary workaround for: https://www.raspberrypi.org/forums/viewtopic.php?f=63&t=264399
-    chromium-browser "$1" \
+    chromium "$1" \
         --noerrdialogs \
         --incognito \
         --check-for-update-interval=2592000 \
