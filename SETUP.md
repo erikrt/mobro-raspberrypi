@@ -60,15 +60,6 @@ apt-get update
 apt-get upgrade -y
 ```
 
-### Disable swap
-
-Since we will be using OverlayFS + read-only mounting we won't be able to use a swap file.  
-Disable swapping completely:
-
-```bash
-cat /home/modbros/mobro-raspberrypi/config/99-disable-swap.conf > /etc/rpi/swap.conf.d/99-disable-swap.conf
-```
-
 ### Install dependencies
 
 Install all of the required dependencies. This might take a bit of time.
@@ -138,6 +129,16 @@ chmod 444 /home/modbros/mobro-raspberrypi/resources/*
 
 chmod 440 /home/modbros/mobro-raspberrypi/config/010_modbros-nopasswd
 chmod 440 /home/modbros/mobro-raspberrypi/config/010_wwwdata-scripts
+```
+
+### Disable swap
+
+Since we will be using OverlayFS + read-only mounting we won't be able to use a swap file.  
+Disable swapping completely:
+
+```bash
+mkdir /etc/rpi/swap.conf.d
+cat /home/modbros/mobro-raspberrypi/config/99-disable-swap.conf > /etc/rpi/swap.conf.d/99-disable-swap.conf
 ```
 
 ### Copying configurations
@@ -241,6 +242,7 @@ A final reboot and we're done
 ```bash
 reboot
 ```
+
 
 
 
