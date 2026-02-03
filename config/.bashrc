@@ -9,7 +9,7 @@ set_bash_prompt() {
     ofs_color="\[\033[38;5;2m\]"
   fi
 
-  local boot_mode=$(mount | sed -n -e "s/^\/dev\/.* on \/boot .*(\(r[w|o]\).*/\1/p")
+  local boot_mode=$(mount | sed -n -e "s/^\/dev\/.* on \/boot/firmware .*(\(r[w|o]\).*/\1/p")
   local boot_color
   if [ "$boot_mode" = "ro" ]; then
     boot_color="\[\033[38;5;1m\]"
@@ -29,9 +29,9 @@ set_default_fun() {
   sudo rm -f /mobro/skip_service
   sudo /home/modbros/mobro-raspberrypi/scripts/fsmount.sh --rw mobro
   sudo /home/modbros/mobro-raspberrypi/scripts/fsmount.sh --ro root
-  sudo dhcpcd --release
-  sudo systemctl stop dhcpcd
-  sudo rm -rf /var/lib/dhcpcd5/*
+  sudo nmcli con down netplan-eth0
+  sudo systemctl stop NetworkManager
+  sudo rm -rf /var/lib/NetworkManager/*
   sudo reboot
 }
 
@@ -66,7 +66,7 @@ cat <<-TEXT
 TEXT
 
 echo -e '\033[38;5;160m! CAUTION !'
-echo -e '\033[00mThis image uses OverlayFS on \033[38;5;6m/\033[00m, while \033[38;5;6m/boot\033[00m is mounted read-only'
+echo -e '\033[00mThis image uses OverlayFS on \033[38;5;6m/\033[00m, while \033[38;5;6m/boot/firmware\033[00m is mounted read-only'
 echo -e '\033[00mChanges in this mode are not possible or will be lost after shutdown!'
 echo ''
 echo -e '\033[00mUseful commands:'
@@ -84,7 +84,7 @@ cat <<-TEXT
 
 
                         root
- filesystem status ->     | /boot
+ filesystem status ->     | /boot/firmware
                           |   |
 TEXT
 #modbros@mobro-raspberrypi[rw|rw]:~$
