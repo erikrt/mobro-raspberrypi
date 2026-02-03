@@ -9,7 +9,7 @@ set_bash_prompt() {
     ofs_color="\[\033[38;5;2m\]"
   fi
 
-  local boot_mode=$(mount | sed -n -e "s/^\/dev\/.* on \/boot/firmware .*(\(r[w|o]\).*/\1/p")
+  local boot_mode=$(mount | sed -n -e "s/^\/dev\/.* on \/boot .*(\(r[w|o]\).*/\1/p")
   local boot_color
   if [ "$boot_mode" = "ro" ]; then
     boot_color="\[\033[38;5;1m\]"
