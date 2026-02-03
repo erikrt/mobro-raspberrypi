@@ -21,7 +21,7 @@ get_overlay_now() {
 }
 
 get_overlay_conf() {
-  grep -q "overlayroot=tmpfs" /boot/cmdline.txt
+  grep -q "overlayroot=tmpfs" /boot/firmware/cmdline.txt
 }
 
 get_bootro_now() {
@@ -130,7 +130,7 @@ disable_overlayfs() {
   local KERN=$(uname -r)
   # mount the boot partition as writable if it isn't already
   if get_bootro_now; then
-    if ! mount -o remount,rw /boot 2>/dev/null; then
+    if ! mount -o remount,rw /boot/firmware 2>/dev/null; then
       echo "Unable to mount boot partition as writable - cannot disable"
       return 1
     fi
@@ -186,7 +186,7 @@ print_status() {
   printf "\n%s\n" "partition | current | on next boot"
   printf "%s\n" "----------|---------|-------------"
   printf "${color_path}/${color_white}         | ${overlay_color_status}%s      ${color_white}| ${overlay_color_conf}%s\n" "$overlay_status" "$overlay_conf"
-  printf "${color_path}/boot${color_white}     | ${boot_color}%s      ${color_white}| ${color_ro}%s\n" "$boot_status" "RO"
+  printf "${color_path}/boot/firmware${color_white}     | ${boot_color}%s      ${color_white}| ${color_ro}%s\n" "$boot_status" "RO"
   printf "${color_path}/mobro${color_white}    | ${mobro_color}%s      ${color_white}| ${mobro_color}%s\n" "$mobro_status" "$mobro_status"
 }
 
@@ -227,7 +227,7 @@ r | root)
   PARTITION=/
   ;;
 b | boot)
-  PARTITION=/boot
+  PARTITION=/boot/firmware
   ;;
 m | mobro)
   PARTITION=/mobro
@@ -255,11 +255,11 @@ if [ "$PARTITION" = "/" ] || [ "$PARTITION" = "all" ]; then
   fi
 fi
 
-if [ "$PARTITION" = "/boot" ] || [ "$PARTITION" = "all" ]; then
+if [ "$PARTITION" = "/boot/firmware" ] || [ "$PARTITION" = "all" ]; then
   if [ "$ACTION" = "RW" ]; then
-    remount_rw /boot
+    remount_rw /boot/firmware
   elif [ "$ACTION" = "RO" ]; then
-    remount_ro /boot
+    remount_ro /boot/firmware
   fi
 fi
 
