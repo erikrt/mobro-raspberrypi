@@ -225,13 +225,13 @@ systemctl daemon-reload
 systemctl enable mobro.service
 ```
 
-### Disable dhcpcd service
+### Disable NetworkManager service
 
-Disable the dhcpcd service to prevent it from automatically starting  
+Disable the NetworkManager service to prevent it from automatically starting  
 This will be handled by the MoBro service
 
 ```bash
-systemctl disable dhcpcd
+systemctl disable NetworkManager
 ```
 
 ### Reboot
@@ -241,6 +241,7 @@ A final reboot and we're done
 ```bash
 reboot
 ```
+
 
 
 
