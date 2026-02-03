@@ -66,10 +66,7 @@ Since we will be using OverlayFS + read-only mounting we won't be able to use a 
 Disable swapping completely:
 
 ```bash
-dphys-swapfile swapoff
-dphys-swapfile uninstall
-update-rc.d dphys-swapfile remove
-apt purge -y dphys-swapfile
+cat /home/modbros/mobro-raspberrypi/config/99-disable-swap.conf > /etc/rpi/swap.conf.d/99-disable-swap.conf
 ```
 
 ### Install dependencies
@@ -244,6 +241,7 @@ A final reboot and we're done
 ```bash
 reboot
 ```
+
 
 
 
