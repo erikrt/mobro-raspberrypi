@@ -13,7 +13,7 @@ class Constants
     public const FILE_TIMEZONES = self::BASE_PATH . '/web/resources/timezones.txt';
     public const FILE_REST_API = self::BASE_PATH . '/web/resources/rest_api_doc.txt';
     public const FILE_LOG = self::TMP_DIR . '/mobro_log';
-    public const FILE_CONFIGTXT = '/boot/config.txt';
+    public const FILE_CONFIGTXT = '/boot/firmware/config.txt';
     public const FILE_MOBRO_CONFIGTXT_READ = self::BASE_PATH . '/config/mobro_configtxt';
     public const FILE_MOBRO_CONFIGTXT_WRITE = self::TMP_DIR . '/mobro_configtxt';
 
