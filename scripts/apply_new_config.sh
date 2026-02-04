@@ -72,7 +72,7 @@ add_wpa_setting() {
 }
 
 get_overlay_now() {
-    grep -q "boot=overlay" /proc/cmdline
+    grep -q "overlayroot=tmpfs" /proc/cmdline
 }
 
 get_bootro_now() {
