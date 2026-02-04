@@ -122,7 +122,7 @@ EOF
 
   # modify command line
   if ! grep -q "boot=overlay" /boot/firmware/cmdline.txt; then
-    sed -i /boot/firmware/cmdline.txt -e "s/^/boot=overlay /"
+    sed -i /boot/firmware/cmdline.txt -e "s/^/overlayroot=tmpfs /"
   fi
 }
 
@@ -141,7 +141,7 @@ disable_overlayfs() {
   update-initramfs -d -k "${KERN}-overlay"
 
   # modify command line
-  sed -i /boot/firmware/cmdline.txt -e "s/\(.*\)boot=overlay \(.*\)/\1\2/"
+  sed -i /boot/firmware/cmdline.txt -e "s/\(.*\)overlayroot=tmpfs \(.*\)/\1\2/"
 }
 
 remount_ro() {
