@@ -65,7 +65,9 @@ apt-get upgrade -y
 Install all of the required dependencies. This might take a bit of time.
 
 ```bash
-apt-get -y install lighttpd php8.4-fpm php-cgi libterm-readline-gnu-perl xserver-xorg xserver-xorg-video-fbturbo x11-xserver-utils xinit matchbox-window-manager chromium xwit xdotool curl arp-scan util-linux procps iproute2 iw iptables net-tools hostapd dnsmasq git make feh rng-tools secure-delete fbi busybox-syslogd xwayland
+apt-get -y install lighttpd php-cgi libterm-readline-gnu-perl xserver-xorg xserver-xorg-video-fbturbo x11-xserver-utils xinit matchbox-window-manager chromium xwit xdotool curl arp-scan util-linux procps iproute2 iw iptables net-tools hostapd dnsmasq git make feh rng-tools secure-delete fbi busybox-syslogd xwayland
+
+temp remove: php8.4-fpm
 ```
 
 ### User groups
@@ -242,6 +244,7 @@ A final reboot and we're done
 ```bash
 reboot
 ```
+
 
 
 
