@@ -689,7 +689,7 @@ $ssids = array_unique($ssids);
                         <i class="fas fa-ruler-combined"></i>
                       </span>
                     </div>
-                    /*
+                    /*{
                     <select id="hdmiModeInput" name="display_hdmi_mode" class="form-control selectpicker"
                             aria-describedby="hdmiModeInputHelp">
                       <option value="" <?php echo $display_hdmi_mode == '' ? 'selected' : '' ?>>Default</option>
@@ -707,7 +707,7 @@ $ssids = array_unique($ssids);
                         }
                         ?>
                     </select>
-                    */
+                    }*/
                   </div>
                   <small id="hdmiModeInputHelp" class="form-text text-muted">
                     Resolution and frequency of the connected HDMI display<br>
