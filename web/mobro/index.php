@@ -118,9 +118,9 @@ $network_wpa = getOrDefault($props['network_wpa'], '');
 $network_hidden = getOrDefault($props['network_hidden'], '0');
 
 // display
-//$display_driver = getOrDefault($props['display_driver'], 'default');
+$display_driver = getOrDefault($props['display_driver'], 'default');
 //$display_hdmi_mode = getOrDefault($props['display_hdmi_mode'], '');
-//$display_rotation = getOrDefault($props['display_rotation'], '0');
+$display_rotation = getOrDefault($props['display_rotation'], '0');
 $display_screensaver = getOrDefault($props['display_screensaver'], 'disabled');
 $display_screensaver_url = getOrDefault($props['display_screensaver_url'], '');
 $display_delay = getOrDefault($props['display_delay'], '5');
