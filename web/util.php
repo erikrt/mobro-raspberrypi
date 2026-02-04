@@ -222,6 +222,7 @@ function getSupportedHdmiModes(): array
     );
 }
 
+/*
 function getSupportedModes(string $group, int $prefix): array
 {
     $json = shell_exec('/opt/vc/bin/tvservice -m ' . $group . ' -j');
@@ -234,6 +235,7 @@ function getSupportedModes(string $group, int $prefix): array
     }
     return $result;
 }
+*/
 
 function isPiZero1(): bool
 {
