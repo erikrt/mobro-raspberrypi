@@ -1,7 +1,7 @@
 
 set_bash_prompt() {
   local ofs_mode ofs_color
-  if $(grep -q "boot=overlay" /proc/cmdline); then
+  if $(grep -q "overlayroot=tmpfs" /proc/cmdline); then
     ofs_mode="ro"
     ofs_color="\[\033[38;5;1m\]"
   else
