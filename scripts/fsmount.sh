@@ -121,7 +121,7 @@ EOF
   echo initramfs "$INITRD" >>/boot/firmware/config.txt
 
   # modify command line
-  if ! grep -q "boot=overlay" /boot/firmware/cmdline.txt; then
+  if ! grep -q "overlayroot=tmpfs" /boot/firmware/cmdline.txt; then
     sed -i /boot/firmware/cmdline.txt -e "s/^/overlayroot=tmpfs /"
   fi
 }
